@@ -1,0 +1,82 @@
+$linkColor: #000000;
+$activeLinkColor: #ee495f;
+$smallTextColor: rgb(122, 86, 86);
+$starColor: #ffd600;
+
+.right {
+  text-align: right;
+}
+
+a {
+  color: $linkColor;
+}
+
+a:active, a:hover {
+  color: $activeLinkColor;
+  text-decoration: none;
+}
+
+.news-container {
+  margin: 8px 30px;
+  padding: 8px;
+  box-shadow: 0px 1px 2px $activeLinkColor;
+  border-radius: 5px;
+}
+
+.news-title {
+  font-size: 16px;
+}
+
+.news-source {
+  display: inline-block;
+  font-size: 12px;
+  color: $smallTextColor;
+}
+
+.news-description {
+  font-size: 12px;
+}
+
+.news-info {
+  display: block;
+  font-size: 10px;
+  color: $smallTextColor;
+}
+
+.news-author, .news-date {
+  display: inline-block;
+  margin:  0 0 0 5px;
+}
+
+i {
+  color: $starColor;
+}
+
+.star:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.msg-body {
+  font-size: small;
+  font-weight: bold;
+  a {
+    color: $activeLinkColor;
+  }
+  p {
+    margin: 0 0 0 32px;
+  }
+}
+
+.close-x:before {
+  content: 'x';
+}
+
+.close-x {
+  text-decoration: none;
+  top: 5px;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+
