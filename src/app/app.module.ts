@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NavigationComponent } from './navigation/navigation.component';
 import {AppRoutingModule} from './app-routing.module';
 import {NewsService} from './news/news.service';
+import {AuthModule} from "./auth/auth.module";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {NewsService} from './news/news.service';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NewsModule
+    NewsModule,
+    AuthModule
   ],
   providers: [NewsService],
   bootstrap: [AppComponent]

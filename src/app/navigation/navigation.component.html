@@ -30,29 +30,29 @@
           <!--</li>-->
         <!--</ng-container>-->
       </ul>
-      <!--<ul class="navbar-nav d-flex justify-content-end ">-->
-        <!--&lt;!&ndash;<ng-container *ngIf="!isAuthenticated()">&ndash;&gt;-->
-          <!--&lt;!&ndash;<li class="nav-item" routerLinkActive="active">&ndash;&gt;-->
-            <!--&lt;!&ndash;<a class="nav-link" routerLink="/register">&ndash;&gt;-->
-              <!--&lt;!&ndash;Rejestracja&ndash;&gt;-->
-            <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--&lt;!&ndash;</li>&ndash;&gt;-->
-          <!--&lt;!&ndash;<li class="nav-item" routerLinkActive="active">&ndash;&gt;-->
-            <!--&lt;!&ndash;<a class="nav-link" routerLink="/login">&ndash;&gt;-->
-              <!--&lt;!&ndash;Logowanie&ndash;&gt;-->
-            <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--&lt;!&ndash;</li>&ndash;&gt;-->
-        <!--&lt;!&ndash;</ng-container>&ndash;&gt;-->
-        <!--&lt;!&ndash;<ng-container *ngIf="isAuthenticated()">&ndash;&gt;-->
-          <!--&lt;!&ndash;<li&ndash;&gt;-->
-            <!--&lt;!&ndash;class="nav-item"&ndash;&gt;-->
-            <!--&lt;!&ndash;routerLinkActive="active" >&ndash;&gt;-->
-            <!--&lt;!&ndash;<a class="nav-link logout"  routerLink="/" (click)="logOut()">&ndash;&gt;-->
-              <!--&lt;!&ndash;Wyloguj&ndash;&gt;-->
-            <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--&lt;!&ndash;</li>&ndash;&gt;-->
-        <!--&lt;!&ndash;</ng-container>&ndash;&gt;-->
-      <!--</ul>-->
+      <ul class="navbar-nav d-flex justify-content-end ">
+        <!--<ng-container *ngIf="!isAuthenticated()">-->
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/register">
+              Rejestracja
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/login">
+              Logowanie
+            </a>
+          </li>
+        <!--</ng-container>-->
+        <!--<ng-container *ngIf="isAuthenticated()">-->
+          <!--<li-->
+            <!--class="nav-item"-->
+            <!--routerLinkActive="active" >-->
+            <!--<a class="nav-link logout"  routerLink="/" (click)="logOut()">-->
+              <!--Wyloguj-->
+            <!--</a>-->
+          <!--</li>-->
+        <!--</ng-container>-->
+      </ul>
     </div>
   </div>
 </nav>
