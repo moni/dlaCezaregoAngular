@@ -1,37 +1,26 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  token = new BehaviorSubject<any>('');
 
   constructor(private httpClient: HttpClient) {
   }
 
-  registerUser(email, password) {
-    return this.httpClient.post('http://localhost:3000/auth/register',
-      {email, password},
-      {
-        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
-      })
-      .toPromise()
-      .then(response => {
-      console.log(response);
-    })
-      .catch(error => console.error(error));
+  updateToken(token: string): void {
+    this.token.next(token);
   }
 
-  loginUser(email, password) {
-    return this.httpClient.post('http://localhost:3000/auth/login',
-      {email, password},
-      {
-        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
-      })
-      .toPromise()
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => console.error(error));
+  registerUser(email: string, password: string): Observable<any> {
+    return this.httpClient.post<any>(`${environment.apiUrl}/auth/register`, {email, password});
+  }
+
+  loginUser(email, password): Observable<any> {
+    return this.httpClient.post<any>(`${environment.apiUrl}/auth/login`, {email, password});
   }
 }

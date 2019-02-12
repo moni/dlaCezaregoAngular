@@ -15,11 +15,9 @@ export class TodayNewsComponent implements OnInit {
   ngOnInit() {
     if (!!this.newsService.todayNews) {
       this.todayNews = this.newsService.todayNews;
-      console.log('notimeout today', this.todayNews);
     } else {
       setTimeout(() => {
         this.todayNews = this.newsService.todayNews;
-        console.log('timeout today', this.todayNews);
       }, 2000);
     }
 

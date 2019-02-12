@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable} from "rxjs";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,14 @@ export class NewsService {
   constructor(private httpClient: HttpClient) { }
 
   getNews() {
-    this.httpClient.get('http://localhost:3000/news')
+    this.httpClient.get(`${environment.apiUrl}/news`)
       .subscribe(response => {
         this.allNews = response;
       });
   }
 
   getTodayNews() {
-    this.httpClient.get('http://localhost:3000/news/today')
+    this.httpClient.get(`${environment.apiUrl}/news/today`)
       .toPromise()
       .then(response => {
         this.todayNews = response;

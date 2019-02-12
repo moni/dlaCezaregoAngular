@@ -26,9 +26,8 @@ export class LoginComponent implements OnInit {
     if (this.registerForm.valid) {
       const email = this.registerForm.controls.email.value;
       const password = this.registerForm.controls.password.value;
-      this.authService.loginUser(email, password);
-    } else {
-      return;
+      this.authService.loginUser(email, password)
+        .subscribe(token => this.authService.updateToken(token));
     }
   }
 }
