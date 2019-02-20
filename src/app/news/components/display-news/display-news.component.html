@@ -4,7 +4,7 @@
       <a href={{item.url}} target="_blank" data-toggle="tooltip" data-placement="bottom" title={{item.description}}> {{ item.title}} </a>
       <div class="news-source" *ngIf="item.source.name"> ({{ item.source.name  }}) </div>
       <div class="news-info">
-        <div class="news-date" *ngIf="item.publishedAt"> {{ item.publishedAt | date:'d MMMM yyyy'}} </div>
+        <div class="news-date" *ngIf="item.publishedAt"> {{ item.publishedAt | date:'dd MMMM yyyy'}} </div>
         <div class="news-author" *ngIf="item.author"> ({{ item.author }}) </div>
       </div>
     </div>
