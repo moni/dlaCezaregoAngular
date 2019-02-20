@@ -23,4 +23,8 @@ export class AuthService {
   loginUser(email, password): Observable<any> {
     return this.httpClient.post<any>(`${environment.apiUrl}/auth/login`, {email, password});
   }
+
+  getToken(): BehaviorSubject<any> {
+    return this.token;
+  }
 }
