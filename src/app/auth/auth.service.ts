@@ -27,4 +27,14 @@ export class AuthService {
   getToken(): BehaviorSubject<any> {
     return this.token;
   }
+
+  isAuthenticated(): boolean {
+    return !!(this.token.getValue());
+  }
+
+  logOutUser(): BehaviorSubject<any> {
+
+    this.updateToken('');
+    return this.token
+  }
 }

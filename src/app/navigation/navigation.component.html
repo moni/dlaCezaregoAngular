@@ -22,16 +22,16 @@
             Wszystkie Wiadomości
           </a>
         </li>
-        <!--<ng-container *ngIf="isAuthenticated()">-->
-          <!--<li class="nav-item" routerLinkActive="active">-->
-            <!--<a class="nav-link" routerLink="/favorites">-->
-              <!--Ulubione-->
-            <!--</a>-->
-          <!--</li>-->
-        <!--</ng-container>-->
+        <ng-container *ngIf="isAuthenticated()">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/favorites">
+              Ulubione
+            </a>
+          </li>
+        </ng-container>
       </ul>
       <ul class="navbar-nav d-flex justify-content-end ">
-        <!--<ng-container *ngIf="!isAuthenticated()">-->
+        <ng-container *ngIf="!isAuthenticated()">
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" routerLink="/register">
               Rejestracja
@@ -42,16 +42,16 @@
               Logowanie
             </a>
           </li>
-        <!--</ng-container>-->
-        <!--<ng-container *ngIf="isAuthenticated()">-->
-          <!--<li-->
-            <!--class="nav-item"-->
-            <!--routerLinkActive="active" >-->
-            <!--<a class="nav-link logout"  routerLink="/" (click)="logOut()">-->
-              <!--Wyloguj-->
-            <!--</a>-->
-          <!--</li>-->
-        <!--</ng-container>-->
+        </ng-container>
+        <ng-container *ngIf="isAuthenticated()">
+          <li
+            class="nav-item"
+            routerLinkActive="active" >
+            <a class="nav-link logout"  routerLink="/" (click)="logOut()">
+              Wyloguj
+            </a>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>
