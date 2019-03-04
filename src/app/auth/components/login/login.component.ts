@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../auth.service';
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+
   }
 
   onSubmit(): void {
@@ -28,7 +30,15 @@ export class LoginComponent implements OnInit {
       const email = this.registerForm.controls.email.value;
       const password = this.registerForm.controls.password.value;
       this.authService.loginUser(email, password)
-        .subscribe(token => this.authService.updateToken(token));
+        .subscribe(token => {
+          this.authService.updateToken(token);
+          this.authService.statusCode.subscribe(statusCode => {
+            console.log(statusCode)
+            if (!!statusCode) {
+              return this.authService.navigate(`${environment.apiUrl}`);
+            }
+          })
+        });
     }
   }
 }

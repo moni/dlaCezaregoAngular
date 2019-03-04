@@ -28,7 +28,7 @@ export class NewsService {
   }
 
   forceDatabaseUpdate(): Subscription {
-    return this.httpClient.get(`${environment.apiUrl}/`)
+    return this.httpClient.get(`${environment.apiUrl}/`, { responseType: 'text' })
       .subscribe(() => {
         console.log('jest');
       });
