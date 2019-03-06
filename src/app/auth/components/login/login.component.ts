@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 import {AuthService} from '../../auth.service';
-import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   registerForm: FormGroup;
@@ -18,14 +18,16 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.updateStatusCode('');
+    this.authService.authFlag = true;
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
-
   }
 
   onSubmit(): void {
+    console.log('login onInit', this.authService.statusCode.value);
     if (this.registerForm.valid) {
       const email = this.registerForm.controls.email.value;
       const password = this.registerForm.controls.password.value;
@@ -33,12 +35,15 @@ export class LoginComponent implements OnInit {
         .subscribe(token => {
           this.authService.updateToken(token);
           this.authService.statusCode.subscribe(statusCode => {
-            console.log(statusCode)
-            if (!!statusCode) {
-              return this.authService.navigate(`${environment.apiUrl}`);
+            if (statusCode === 201) {
+              this.authService.navigate('');
             }
           })
         });
     }
+  }
+
+  closeErrorMessage(): void {
+    return this.authService.clearErrorMessage();
   }
 }

@@ -5,14 +5,6 @@ import {TodayNewsComponent} from './news/components/today-news/today-news.compon
 import {RegisterComponent} from "./auth/components/register/register.component";
 import {LoginComponent} from "./auth/components/login/login.component";
 
-// import { RegisterComponent } from './auth/components/register/register.component';
-// import { LoginComponent } from './auth/components/login/login.component';
-
-// import { FreshNewsComponent } from './news/components/fresh-news/fresh-news.component';
-// import { FavoritesNewsComponent } from './news/components/favorites-news/favorites-news.component';
-// import { AuthGuardService } from './auth-guard.service';
-
-
 const appRoutes: Routes = [
   {path: '', pathMatch: 'full', component: TodayNewsComponent},
   {path: 'all', pathMatch: 'full', component: AllNewsComponent},

@@ -1,0 +1,27 @@
+.error-msg {
+  position: relative;
+  border: 1px solid #c40c0c;
+  border-radius: 8px;
+  background-color: #c40c0c2d;
+  color: #c40c0c;
+  font-size: 15px;
+  font-weight: bold; }
+  .error-msg i {
+    padding: 16px;
+    font-size: 24px;
+    vertical-align: sub; }
+
+.close-x:before {
+  content: 'x'; }
+
+.close-x {
+  color: #c40c0c;
+  font-size: 14px;
+  position: absolute;
+  right: 16px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #c40c0c2d;
+  top: 5px;
+  cursor: pointer; }
+
+/*# sourceMappingURL=register.component.css.map */

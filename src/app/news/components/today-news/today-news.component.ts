@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsService} from '../../news.service';
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-today-news',
@@ -14,17 +15,22 @@ export class TodayNewsComponent implements OnInit {
 
   ngOnInit() {
     if (!!this.newsService.todayNews) {
+      if (this.newsService.todayNews.length === 0) {
+        this.newsService.forceDatabaseUpdate()
+      }
       this.todayNews = this.newsService.todayNews;
     } else {
-      this.forceDatabaseUpdate();
-      setTimeout(() => {
+      this.forceDatabaseUpdate().subscribe(response => {
+        setTimeout(() => {
           this.todayNews = this.newsService.todayNews;
-      }, 2000);
-    };
+        }, 2000);
+      });
+
+    }
   }
 
-  forceDatabaseUpdate(): void {
-    this.newsService.forceDatabaseUpdate();
+  forceDatabaseUpdate(): Observable<any> {
+    return this.newsService.forceDatabaseUpdate();
   }
 }
 

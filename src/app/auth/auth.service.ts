@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class AuthService {
   token = new BehaviorSubject<any>('');
   public statusCode = new BehaviorSubject<any>('');
+  public authFlag: boolean = true;
 
   constructor(private httpClient: HttpClient, private router: Router) {
   }
@@ -40,10 +41,16 @@ export class AuthService {
 
   logOutUser(): BehaviorSubject<any> {
     this.updateToken('');
+    this.updateStatusCode('')
     return this.token
   }
 
   navigate(path: string): void {
     this.router.navigate([path]);
   }
+
+  clearErrorMessage(): void {
+    this.statusCode.next('');
+    this.authFlag = true;
+  };
 }

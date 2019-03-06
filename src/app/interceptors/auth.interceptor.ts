@@ -8,7 +8,7 @@ import {
 import {AuthService} from '../auth/auth.service';
 import {Observable, of} from 'rxjs';
 import {Router} from "@angular/router";
-import {catchError, tap} from "rxjs/internal/operators";
+import {tap} from "rxjs/internal/operators";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -28,15 +28,12 @@ export class AuthInterceptor implements HttpInterceptor {
       .pipe(
         tap(event => {
           if (event instanceof HttpResponse) {
-            console.log('http response', event.status);
+            this.authService.authFlag = true;
             this.authService.updateStatusCode(event.status);
           }
         }, error => {
-          console.log('response: ');
-          console.log('error status code: ')
-          console.error(error.status);
-          console.error(error.message);
-          console.log('end of response');
+          this.authService.authFlag = false;
+          this.authService.updateStatusCode(error.status);
         })
     );
   }
