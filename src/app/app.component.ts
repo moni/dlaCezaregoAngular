@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
+
 import {NewsService} from './news/news.service';
 
 @Component({
@@ -7,12 +8,27 @@ import {NewsService} from './news/news.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'dlaCezaregoAngular';
+  title = 'dla Cezarego Angular';
 
-  constructor(private newsService: NewsService) {}
+  constructor(private newsService: NewsService) {
+  }
 
- ngOnInit() {
+  ngOnInit() {
     this.newsService.getNews();
     this.newsService.getTodayNews();
- }
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  handleArrowVisibility(): void {
+    const backToTopArrow = document.getElementById('back-to-top-arrow');
+    if (window.pageYOffset < 400) {
+      backToTopArrow.classList.add('invisible');
+    } else {
+      backToTopArrow.classList.remove('invisible');
+    }
+  }
+
+  backToTop(): void {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 }

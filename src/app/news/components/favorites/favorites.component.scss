@@ -1,0 +1,10 @@
+$starColor: #ffd600;
+
+i {
+  color: $starColor;
+}
+
+.star:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}

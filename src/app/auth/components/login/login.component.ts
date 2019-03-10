@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {AuthService} from '../../auth.service';
-import {NewsService} from "../../../news/news.service";
+import {NewsService} from '../../../news/news.service';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
           this.authService.statusCode.subscribe(statusCode => {
             if (statusCode === 201) {
               this.newsService.getFavorites();
+              this.newsService.getFavoritesIds();
               this.authService.navigate('');
             }
           })

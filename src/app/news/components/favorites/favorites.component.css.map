@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,CAAE;EACA,KAAK,EAHK,OAAO;;AAMnB,WAAY;EACV,OAAO,EAAE,GAAG;EACZ,MAAM,EAAE,OAAO",
+"sources": ["favorites.component.scss"],
+"names": [],
+"file": "favorites.component.css"
+}

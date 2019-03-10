@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {NewsService} from '../../news.service';
+import {Component, OnInit} from '@angular/core';
 
+import {NewsService} from '../../news.service';
 
 @Component({
   selector: 'app-all-news',
@@ -10,7 +10,8 @@ import {NewsService} from '../../news.service';
 export class AllNewsComponent implements OnInit {
   public allNews = [];
 
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService) {
+  }
 
   ngOnInit() {
     if (!!this.newsService.allNews) {

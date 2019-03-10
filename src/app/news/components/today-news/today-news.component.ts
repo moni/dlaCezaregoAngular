@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+
 import {NewsService} from '../../news.service';
-import {Observable, Subscription} from "rxjs";
+
 
 @Component({
   selector: 'app-today-news',

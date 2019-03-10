@@ -1,6 +1,27 @@
-<div class="container" *ngFor="let item of news">
+<div class="container" *ngFor="let item of news; let i = index">
+  <ng-container *ngIf="i === selectedNewsIndex">
+    <div class="row msg-container" id={{i}}>
+      <div class="col-12 mx-auto msg-body">
+        <p><a class="close-x" (click)="toggleMessageAboutLogin(i)"></a>
+          Żeby zapisać link w <i class="far fa-star"> </i> Ulubionych musisz się <a routerLink="login">zalogować</a>!
+          Jeśli nie masz jeszcze konta <a routerLink="register">zarejestruj się</a>!
+        </p>
+      </div>
+    </div>
+  </ng-container>
   <div class="row news-container" *ngIf="item.title">
     <div class="col-12 news-title">
+      <ng-container *ngIf="isAuthenticated()">
+        <ng-container *ngIf="isFavorite(item._id)">
+          <i class="fas fa-star star" (click)="updateFavorites(item._id)"></i>
+        </ng-container>
+        <ng-container *ngIf="!isFavorite(item._id)">
+          <i class="far fa-star star" (click)="updateFavorites(item._id)"></i>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="!isAuthenticated()">
+          <i class="far fa-star star" (click)="toggleMessageAboutLogin(i)"></i>
+      </ng-container>
       <a href={{item.url}} target="_blank" data-toggle="tooltip" data-placement="bottom" title={{item.description}}> {{ item.title}} </a>
       <div class="news-source" *ngIf="item.source.name"> ({{ item.source.name  }}) </div>
       <div class="news-info">

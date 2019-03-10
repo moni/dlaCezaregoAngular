@@ -1,4 +1,12 @@
-<p>
-  favorites works!
-</p>
+<ng-container *ngIf="!favorites.length">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 mx-auto pt-5">
+        <span>NULL</span>
+        <br>
+        <span>Żeby dodać wiadomość do ulubionych kliknij <i class="far fa-star"></i> znajdującą się przy tytule wiadomości!</span>
+      </div>
+    </div>
+  </div>
+</ng-container>
 <app-display-news [news]="favorites" ></app-display-news>
