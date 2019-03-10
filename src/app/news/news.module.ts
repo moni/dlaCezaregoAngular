@@ -4,6 +4,7 @@ import { DisplayNewsComponent } from './components/display-news/display-news.com
 import { AllNewsComponent } from './components/all-news/all-news.component';
 import { TodayNewsComponent } from './components/today-news/today-news.component';
 import {RouterModule} from '@angular/router';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
 
@@ -11,7 +12,7 @@ import {RouterModule} from '@angular/router';
     CommonModule,
     RouterModule
   ],
-  declarations: [AllNewsComponent, DisplayNewsComponent, TodayNewsComponent],
+  declarations: [AllNewsComponent, DisplayNewsComponent, TodayNewsComponent, FavoritesComponent],
 
 })
 export class NewsModule { }

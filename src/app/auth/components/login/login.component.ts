@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {AuthService} from '../../auth.service';
+import {NewsService} from "../../../news/news.service";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
   }
 
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
       const password = this.registerForm.controls.password.value;
       this.authService.loginUser(email, password)
         .subscribe(token => {
+          this.authService.decodeToken(token);
           this.authService.updateToken(token);
           this.authService.statusCode.subscribe(statusCode => {
             if (statusCode === 201) {
