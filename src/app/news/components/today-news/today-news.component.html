@@ -1,10 +1,19 @@
-<ng-container *ngIf="!todayNews">
+<ng-container *ngIf="!newsService.todayNews && !todayNews">
+  <div class="container">
+    <h6 class="center">Loading... <b><a routerLink="all">wszystkie wiadomości!</a></b> </h6>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="(!!newsService.todayNews && !!todayNews)">
+  <ng-container *ngIf="(!newsService.todayNews.length)">
   <div class="container">
     <h6 class="center">Nie ma dzisiejszych wiadomości! Sprawdź <b><a routerLink="all">wszystkie wiadomości!</a></b> </h6>
   </div>
 </ng-container>
-<ng-container *ngIf="todayNews">
-  <app-display-news [news]="todayNews" ></app-display-news>
+  <ng-container *ngIf="(!!newsService.todayNews.length)">
+    <app-display-news [news]="todayNews" ></app-display-news>
+  </ng-container>
 </ng-container>
+
 
 

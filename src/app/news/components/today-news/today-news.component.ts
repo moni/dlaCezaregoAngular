@@ -10,7 +10,7 @@ import {NewsService} from '../../news.service';
   styleUrls: ['../display-news/display-news.component.css']
 })
 export class TodayNewsComponent implements OnInit {
-  public todayNews = [];
+  public todayNews: Array<object>;
 
   constructor(private newsService: NewsService) {
   }
