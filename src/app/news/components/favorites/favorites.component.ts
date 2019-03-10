@@ -14,6 +14,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newsService.getFavorites();
+    this.newsService.getFavoritesIds();
     if (!!this.newsService.favorites) {
       this.favorites = this.newsService.favorites;
     } else {

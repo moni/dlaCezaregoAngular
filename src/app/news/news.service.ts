@@ -45,7 +45,6 @@ export class NewsService {
     const id = this.authService.userId;
     return this.httpClient.get(`${environment.apiUrl}/users/${id}/getFavIds`)
       .subscribe(response => {
-        console.log(response)
         this.favoritesIds = response;
       });
   }
@@ -53,9 +52,13 @@ export class NewsService {
   updateFavorites(newsId: string) {
     const id = this.authService.userId;
     return this.httpClient.post(`${environment.apiUrl}/users/${id}/updateFav`, {newsId})
-      .toPromise().then(response => {
-        console.log('UpdateRes ', response)
-      })
+  }
+
+  updateFavoritesNews(newsId: string) {
+    return this.updateFavorites(newsId).subscribe(() => {
+      this.getFavoritesIds();
+      this.getFavorites();
+    });
   }
 
   forceDatabaseUpdate(): Observable<any> {

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {AuthService} from '../../auth.service';
-import {NewsService} from '../../../news/news.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private newsService: NewsService
   ) {
   }
 
@@ -29,7 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('login onInit', this.authService.statusCode.value);
     if (this.registerForm.valid) {
       const email = this.registerForm.controls.email.value;
       const password = this.registerForm.controls.password.value;
@@ -37,13 +34,7 @@ export class LoginComponent implements OnInit {
         .subscribe(token => {
           this.authService.decodeToken(token);
           this.authService.updateToken(token);
-          this.authService.statusCode.subscribe(statusCode => {
-            if (statusCode === 201) {
-              this.newsService.getFavorites();
-              this.newsService.getFavoritesIds();
-              this.authService.navigate('');
-            }
-          })
+          this.authService.navigate('favorites');
         });
     }
   }

@@ -30,7 +30,7 @@ export class DisplayNewsComponent implements OnInit {
   }
 
   updateFavorites(newsId) {
-    return this.newsService.updateFavorites(newsId);
+    return this.newsService.updateFavoritesNews(newsId);
   }
 
   toggleMessageAboutLogin(index: number): void {
