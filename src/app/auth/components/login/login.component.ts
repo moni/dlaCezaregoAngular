@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private newsService: NewsService
   ) {
   }
 
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
           this.authService.updateToken(token);
           this.authService.statusCode.subscribe(statusCode => {
             if (statusCode === 201) {
+              this.newsService.getFavorites();
               this.authService.navigate('');
             }
           })

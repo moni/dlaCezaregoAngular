@@ -25,7 +25,6 @@ export class TodayNewsComponent implements OnInit {
           this.todayNews = this.newsService.todayNews;
         }, 2000);
       });
-
     }
   }
 

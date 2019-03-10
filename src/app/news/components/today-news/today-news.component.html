@@ -1,7 +1,10 @@
-<ng-container *ngIf="!todayNews.length">
+<ng-container *ngIf="!todayNews">
   <div class="container">
     <h6 class="center">Nie ma dzisiejszych wiadomości! Sprawdź <b><a routerLink="all">wszystkie wiadomości!</a></b> </h6>
   </div>
 </ng-container>
-<app-display-news [news]="todayNews" ></app-display-news>
+<ng-container *ngIf="todayNews">
+  <app-display-news [news]="todayNews" ></app-display-news>
+</ng-container>
+
 

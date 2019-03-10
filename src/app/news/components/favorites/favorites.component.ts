@@ -7,11 +7,20 @@ import {NewsService} from "../../news.service";
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
+  public favorites = [];
 
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
-    this.newsService.getFavorites();
+    if (!!this.newsService.favorites) {
+      this.favorites = this.newsService.favorites;
+    } else {
+
+        setTimeout(() => {
+          this.favorites = this.newsService.favorites;
+        }, 300);
+
+    }
   }
 
 }
