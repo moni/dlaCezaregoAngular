@@ -1,2 +1,7 @@
-<app-display-news [news]="allNews" ></app-display-news>
+<ng-container *ngIf="!newsService.allNews && !allNews || (!!allNews.length === false)">
+  <app-spinner></app-spinner>
+</ng-container>
+<ng-container *ngIf="!!newsService.allNews && !!allNews">
+  <app-display-news [news]="allNews" ></app-display-news>
+</ng-container>
 
