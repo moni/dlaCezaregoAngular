@@ -1,10 +1,19 @@
-<ng-container *ngIf="!favorites.length">
-  <div class="container">
-    <div class="row">
-      <div class="col-6 mx-auto pt-5">
-        <span>Żeby dodać wiadomość do ulubionych kliknij <i class="far fa-star"></i> znajdującą się przy tytule wiadomości!</span>
+<ng-container *ngIf="!favorites">
+  <app-spinner></app-spinner>
+</ng-container>
+
+<ng-container *ngIf="!!favorites">
+  <ng-container *ngIf="!!favorites.length === false">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 mx-auto pt-5">
+          <span>Żeby dodać wiadomość do ulubionych kliknij <i class="far fa-star"></i> znajdującą się przy tytule wiadomości!</span>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+  <ng-container *ngIf="!!favorites.length === true">
+    <app-display-news [news]="favorites" ></app-display-news>
+  </ng-container>
 </ng-container>
-<app-display-news [news]="favorites" ></app-display-news>
+

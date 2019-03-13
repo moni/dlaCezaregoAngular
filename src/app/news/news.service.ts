@@ -9,44 +9,28 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class NewsService {
-  public allNews: any;
-  public todayNews: any;
-  public favorites: any;
-  public favoritesIds: any;
 
   constructor(
     private httpClient: HttpClient,
     private authService: AuthService) {
   }
 
-  getNews(): Subscription {
+  getNews(): Observable<any> {
     return this.httpClient.get(`${environment.apiUrl}/news`)
-      .subscribe(response => {
-        this.allNews = response;
-      });
   }
 
-  getTodayNews(): Subscription {
+  getTodayNews(): Observable<any> {
     return this.httpClient.get(`${environment.apiUrl}/news/today`)
-      .subscribe(response => {
-        this.todayNews = response;
-      });
   }
 
-  getFavorites(): Subscription {
+  getFavorites(): Observable<any> {
     const id = this.authService.userId;
     return this.httpClient.get(`${environment.apiUrl}/news/${id}/getFavNews`)
-      .subscribe(response => {
-        this.favorites = response;
-      });
   }
 
-  getFavoritesIds(): Subscription {
+  getFavoritesIds(): Observable<any> {
     const id = this.authService.userId;
     return this.httpClient.get(`${environment.apiUrl}/users/${id}/getFavIds`)
-      .subscribe(response => {
-        this.favoritesIds = response;
-      });
   }
 
   updateFavorites(newsId: string) {

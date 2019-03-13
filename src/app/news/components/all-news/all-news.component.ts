@@ -8,19 +8,15 @@ import {NewsService} from '../../news.service';
   styleUrls: ['./all-news.component.css']
 })
 export class AllNewsComponent implements OnInit {
-  public allNews = [];
+  public allNews: any;
 
   constructor(private newsService: NewsService) {
   }
 
   ngOnInit() {
-    if (!!this.newsService.allNews) {
-      this.allNews = this.newsService.allNews;
-    } else {
-      setTimeout(() => {
-        this.allNews = this.newsService.allNews;
-      }, 2000);
-    }
+    this.newsService.getNews().subscribe(news => {
+      this.allNews = news;
+    });
   }
 
 }

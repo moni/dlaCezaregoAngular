@@ -12,11 +12,16 @@ export class DisplayNewsComponent implements OnInit {
   @Input() news: Array<object>;
   public showMessageToAuth = false;
   public selectedNewsIndex: number;
+  public favoritesIds: Array<string>;
 
   constructor(private authService: AuthService, private newsService: NewsService) {
   }
 
   ngOnInit() {
+    if (this.isAuthenticated()) {
+      this.newsService.getFavoritesIds().subscribe(newsIds =>
+      this.favoritesIds = newsIds)
+    }
   }
 
   isAuthenticated(): boolean {
@@ -24,8 +29,8 @@ export class DisplayNewsComponent implements OnInit {
   }
 
   isFavorite(itemId: string): boolean {
-    if (!!this.newsService.favoritesIds) {
-      return this.newsService.favoritesIds.includes(itemId);
+    if (!!this.favoritesIds) {
+      return this.favoritesIds.includes(itemId);
     }
   }
 

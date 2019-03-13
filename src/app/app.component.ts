@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.newsService.getNews();
     this.newsService.getTodayNews();
+    this.newsService.forceDatabaseUpdate();
   }
 
   @HostListener('window:scroll', ['$event'])

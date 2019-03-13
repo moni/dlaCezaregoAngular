@@ -1,14 +1,14 @@
-<ng-container *ngIf="!newsService.todayNews && !todayNews || todayNews.length === false">
+<ng-container *ngIf="!todayNews">
   <app-spinner></app-spinner>
 </ng-container>
 
-<ng-container *ngIf="(!!newsService.todayNews && !!todayNews)">
-  <ng-container *ngIf="(!!newsService.todayNews.length === false)">
+<ng-container *ngIf="!!todayNews">
+  <ng-container *ngIf="(!!todayNews.length === false)">
     <div class="container">
       <h6 class="center">Nie ma dzisiejszych wiadomości! Sprawdź <b><a routerLink="all">wszystkie wiadomości!</a></b> </h6>
     </div>
   </ng-container>
-  <ng-container *ngIf="(!!newsService.todayNews.length === true)">
+  <ng-container *ngIf="(!!todayNews.length === true)">
     <app-display-news [news]="todayNews" ></app-display-news>
   </ng-container>
 </ng-container>

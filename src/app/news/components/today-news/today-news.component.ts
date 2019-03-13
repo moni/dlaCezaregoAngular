@@ -16,22 +16,9 @@ export class TodayNewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!!this.newsService.todayNews) {
-      if (this.newsService.todayNews.length === 0) {
-        this.newsService.forceDatabaseUpdate()
-      }
-      this.todayNews = this.newsService.todayNews;
-    } else {
-      this.forceDatabaseUpdate().subscribe(response => {
-        setTimeout(() => {
-          this.todayNews = this.newsService.todayNews;
-        }, 2000);
-      });
-    }
-  }
-
-  forceDatabaseUpdate(): Observable<any> {
-    return this.newsService.forceDatabaseUpdate();
+    this.newsService.getTodayNews().subscribe(news => {
+      this.todayNews = news;
+    });
   }
 }
 
