@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subscription} from 'rxjs';
 
-import {AuthService} from "../auth/auth.service";
+import {AuthService} from '../auth/auth.service';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -15,20 +15,20 @@ export class NewsService {
     private authService: AuthService) {
   }
 
-  getNews(): Observable<any> {
+  getNews(): Observable<Object> {
     return this.httpClient.get(`${environment.apiUrl}/news`)
   }
 
-  getTodayNews(): Observable<any> {
+  getTodayNews(): Observable<Object> {
     return this.httpClient.get(`${environment.apiUrl}/news/today`)
   }
 
-  getFavorites(): Observable<any> {
+  getFavorites(): Observable<Object> {
     const id = this.authService.userId;
     return this.httpClient.get(`${environment.apiUrl}/news/${id}/getFavNews`)
   }
 
-  getFavoritesIds(): Observable<any> {
+  getFavoritesIds(): Observable<Object> {
     const id = this.authService.userId;
     return this.httpClient.get(`${environment.apiUrl}/users/${id}/getFavIds`)
   }
@@ -38,14 +38,14 @@ export class NewsService {
     return this.httpClient.post(`${environment.apiUrl}/users/${id}/updateFav`, {newsId})
   }
 
-  updateFavoritesNews(newsId: string) {
+  updateFavoritesNews(newsId: string): Subscription {
     return this.updateFavorites(newsId).subscribe(() => {
       this.getFavoritesIds();
       this.getFavorites();
     });
   }
 
-  forceDatabaseUpdate(): Observable<any> {
+  forceDatabaseUpdate(): Observable<string> {
     return this.httpClient.get(`${environment.apiUrl}/`, { responseType: 'text' })
   }
 

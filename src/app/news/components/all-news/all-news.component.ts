@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {NewsService} from '../../news.service';
+import {NewsInterface} from '../../../interfaces/news.interface';
 
 @Component({
   selector: 'app-all-news',
@@ -8,14 +9,14 @@ import {NewsService} from '../../news.service';
   styleUrls: ['./all-news.component.css']
 })
 export class AllNewsComponent implements OnInit {
-  public allNews: any;
+  public allNews: Array<NewsInterface>;
 
   constructor(private newsService: NewsService) {
   }
 
   ngOnInit() {
     this.newsService.getNews().subscribe(news => {
-      this.allNews = news;
+      this.allNews = news as Array<NewsInterface>;
     });
   }
 

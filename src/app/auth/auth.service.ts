@@ -5,13 +5,14 @@ import * as jwt_decode from 'jwt-decode';
 
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import {UserInterface} from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   token = new BehaviorSubject<any>('');
-  public statusCode = new BehaviorSubject<any>('');
+  public statusCode = new BehaviorSubject<number | string>('');
   public authFlag: boolean = true;
   public userId: string;
 
@@ -22,16 +23,16 @@ export class AuthService {
     this.token.next(token.token);
   }
 
-  updateStatusCode(statusCode): void {
+  updateStatusCode(statusCode: number | string): void {
     this.statusCode.next(statusCode);
   }
 
-  registerUser(email: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(`${environment.apiUrl}/auth/register`, {email, password});
+  registerUser(email: string, password: string): Observable<UserInterface> {
+    return this.httpClient.post<UserInterface>(`${environment.apiUrl}/auth/register`, {email, password});
   }
 
-  loginUser(email, password): Observable<any> {
-    return this.httpClient.post<any>(`${environment.apiUrl}/auth/login`, {email, password});
+  loginUser(email, password): Observable<UserInterface> {
+    return this.httpClient.post<UserInterface>(`${environment.apiUrl}/auth/login`, {email, password});
   }
 
   getToken(): BehaviorSubject<any> {
@@ -60,5 +61,5 @@ export class AuthService {
   clearErrorMessage(): void {
     this.statusCode.next('');
     this.authFlag = true;
-  };
+  }
 }

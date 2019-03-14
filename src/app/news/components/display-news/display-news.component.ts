@@ -20,7 +20,7 @@ export class DisplayNewsComponent implements OnInit {
   ngOnInit() {
     if (this.isAuthenticated()) {
       this.newsService.getFavoritesIds().subscribe(newsIds =>
-      this.favoritesIds = newsIds)
+      this.favoritesIds = newsIds as Array<string>)
     }
   }
 
@@ -34,7 +34,17 @@ export class DisplayNewsComponent implements OnInit {
     }
   }
 
-  updateFavorites(newsId) {
+  updateFavoritesIds(newsId: string): void {
+    if (this.favoritesIds.includes(newsId)) {
+      const newsIndex = this.favoritesIds.indexOf(newsId);
+      this.favoritesIds.splice(newsIndex, 1);
+    } else {
+      this.favoritesIds.push(newsId);
+    }
+  }
+
+  updateFavorites(newsId: string) {
+    this.updateFavoritesIds(newsId);
     return this.newsService.updateFavoritesNews(newsId);
   }
 
