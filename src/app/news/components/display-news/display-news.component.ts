@@ -2,6 +2,7 @@ import {Component, Input, OnInit,} from '@angular/core';
 
 import {AuthService} from '../../../auth/auth.service';
 import {NewsService} from '../../news.service';
+import {NewsInterface} from "../../../interfaces/news.interface";
 
 @Component({
   selector: 'app-display-news',
@@ -9,7 +10,7 @@ import {NewsService} from '../../news.service';
   styleUrls: ['./display-news.component.scss'],
 })
 export class DisplayNewsComponent implements OnInit {
-  @Input() news: Array<object>;
+  @Input() news: Array<NewsInterface>;
   public showMessageToAuth = false;
   public selectedNewsIndex: number;
   public favoritesIds: Array<string>;
@@ -38,6 +39,13 @@ export class DisplayNewsComponent implements OnInit {
     if (this.favoritesIds.includes(newsId)) {
       const newsIndex = this.favoritesIds.indexOf(newsId);
       this.favoritesIds.splice(newsIndex, 1);
+      if (location.pathname === '/favorites') {
+        console.log(this.news)
+        const unlikedNews = this.news.find(news => news._id === newsId);
+        const unlikedNewsId = this.news.indexOf(unlikedNews);
+        this.news.splice(unlikedNewsId, 1);
+        console.log('yeyeye')
+      }
     } else {
       this.favoritesIds.push(newsId);
     }

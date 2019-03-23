@@ -33,7 +33,7 @@ export class NewsService {
     return this.httpClient.get(`${environment.apiUrl}/users/${id}/getFavIds`)
   }
 
-  updateFavorites(newsId: string) {
+  updateFavorites(newsId: string): Observable<Object> {
     const id = this.authService.userId;
     return this.httpClient.post(`${environment.apiUrl}/users/${id}/updateFav`, {newsId})
   }
@@ -45,7 +45,17 @@ export class NewsService {
     });
   }
 
-  forceDatabaseUpdate(): Observable<string> {
+  deleteAllNewsFromUserFavorites(): Subscription {
+    console.log('delete')
+    const id = this.authService.userId;
+    return this.httpClient.post(`${environment.apiUrl}/users/${id}/delAllFav`, null)
+      .subscribe(() => {
+        this.getFavoritesIds();
+        this.getFavoritesIds();
+      })
+  }
+
+  forceDatabaseUpdate(): Observable<any> {
     return this.httpClient.get(`${environment.apiUrl}/`, { responseType: 'text' })
   }
 
