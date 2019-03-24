@@ -20,7 +20,7 @@ export class AllNewsComponent implements OnInit {
     );
   }
 
-  public updateNewsBySourcesNames(sources: string) {
+  public updateNewsBySourcesNames(sources: string): void {
     !!sources ? this.newsService.getNewsBySourcesNames(sources).subscribe( news =>
       this.allNews = news as Array<NewsInterface>
     ) : this.allNews = [];

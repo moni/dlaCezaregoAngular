@@ -13,13 +13,13 @@ import {NewsInterface} from '../../../interfaces/news.interface';
 export class SourcesMultiSelectDropdownComponent implements OnInit {
   @Input() news: Array<NewsInterface>;
   @Output() sources = new EventEmitter<string>();
-  public newsToDisplay: Array<NewsInterface>;
   public newsSourcesNames: Array<object> = [];
   public selectedNewsSourcesNames: Array<object> = [];
   public dropdownSettings: Object = {};
   public multiSelectForm: FormGroup;
 
-  constructor( private newsService: NewsService, private fb: FormBuilder) { }
+  constructor(private newsService: NewsService, private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.newsService.getNewsSourcesNames().subscribe(sourcesNames => {
@@ -43,38 +43,37 @@ export class SourcesMultiSelectDropdownComponent implements OnInit {
   }
 
 
-
-  onItemSelect(item: {item_id: string, item_text: string}){
+  onItemSelect(item: { item_id: string, item_text: string }): void {
     this.selectedNewsSourcesNames.push(item);
     this.changeSources();
   }
 
-  onItemDeSelect(item: {item_id: string, item_text: string}) {
-    const itemIndex = this.selectedNewsSourcesNames.map((source: {item_id: string, item_text: string}) => source.item_id).indexOf(item.item_id);
+  onItemDeSelect(item: { item_id: string, item_text: string }): void {
+    const itemIndex = this.selectedNewsSourcesNames.map((source: { item_id: string, item_text: string }) => source.item_id).indexOf(item.item_id);
     this.selectedNewsSourcesNames.splice(itemIndex, 1);
     this.changeSources();
     // ;
   }
 
-  onSelectAll() {
+  onSelectAll(): void {
     this.selectedNewsSourcesNames = this.newsSourcesNames;
     this.changeSources();
   }
 
-  onDeSelectAll() {
+  onDeSelectAll(): void {
     this.selectedNewsSourcesNames = [{item_id: '', item_text: ''}];
     this.changeSources();
   }
 
   formatSourcesNamesToRequest(): string {
     return this.selectedNewsSourcesNames
-      .map((item: {item_id: string, item_text: string}) => item.item_text
+      .map((item: { item_id: string, item_text: string }) => item.item_text
         .valueOf())
       .toString()
       .split(' ').join('%20');
   }
 
-  changeSources() {
+  changeSources(): void {
     const sourcesNames = this.formatSourcesNamesToRequest();
     this.sources.emit(sourcesNames);
   }
