@@ -3,6 +3,7 @@ import {Component, Input, OnInit,} from '@angular/core';
 import {AuthService} from '../../../auth/auth.service';
 import {NewsService} from '../../news.service';
 import {NewsInterface} from "../../../interfaces/news.interface";
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-display-news',
@@ -15,15 +16,19 @@ export class DisplayNewsComponent implements OnInit {
   public selectedNewsIndex: number;
   public favoritesIds: Array<string>;
 
-  constructor(private authService: AuthService, private newsService: NewsService) {
+
+  constructor(private authService: AuthService, private newsService: NewsService, private fb: FormBuilder) {
   }
 
   ngOnInit() {
+
     if (this.isAuthenticated()) {
       this.newsService.getFavoritesIds().subscribe(newsIds =>
       this.favoritesIds = newsIds as Array<string>)
     }
   }
+
+
 
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();

@@ -15,9 +15,14 @@ export class AllNewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.newsService.getNews().subscribe(news => {
-      this.allNews = news as Array<NewsInterface>;
-    });
+    this.newsService.getNews().subscribe(news =>
+      this.allNews = news as Array<NewsInterface>
+    );
   }
 
+  public updateNewsBySourcesNames(sources: string) {
+    !!sources ? this.newsService.getNewsBySourcesNames(sources).subscribe( news =>
+      this.allNews = news as Array<NewsInterface>
+    ) : this.allNews = [];
+  }
 }

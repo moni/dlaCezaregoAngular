@@ -21,7 +21,7 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
     HttpClientModule,
     AppRoutingModule,
     NewsModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [
     NewsService,

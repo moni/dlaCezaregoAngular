@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable, Subscription} from 'rxjs';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {observable, Observable, Subscription} from 'rxjs';
 
 import {AuthService} from '../auth/auth.service';
 import {environment} from '../../environments/environment';
@@ -55,8 +55,15 @@ export class NewsService {
       })
   }
 
+  getNewsSourcesNames(): Observable<Object> {
+    return this.httpClient.get(`${environment.apiUrl}/news/apisSources`)
+  }
+
+  getNewsBySourcesNames(sources: string): Observable<object> {
+    return this.httpClient.get(`${environment.apiUrl}/news/${sources}/newsBySources`);
+  }
+
   forceDatabaseUpdate(): Observable<any> {
     return this.httpClient.get(`${environment.apiUrl}/`, { responseType: 'text' })
   }
-
 }

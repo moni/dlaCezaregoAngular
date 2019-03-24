@@ -1,7 +1,4 @@
-<ng-container *ngIf="!allNews || (!!allNews.length === false)">
-  <app-spinner></app-spinner>
-</ng-container>
 <ng-container *ngIf="!!allNews">
-  <app-display-news [news]="allNews" ></app-display-news>
+  <app-sources-multi-select-dropdown [news]="allNews" (sources)="updateNewsBySourcesNames($event)"></app-sources-multi-select-dropdown>
 </ng-container>
 

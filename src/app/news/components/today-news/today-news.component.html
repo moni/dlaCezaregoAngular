@@ -5,7 +5,7 @@
 <ng-container *ngIf="!!todayNews">
   <ng-container *ngIf="(!!todayNews.length === false)">
     <div class="container">
-      <h6 class="center">Nie ma dzisiejszych wiadomości! Sprawdź <b><a routerLink="all">wszystkie wiadomości!</a></b> </h6>
+      <h6 class="text-center align-middle p-5">Nie ma dzisiejszych wiadomości! Sprawdź <b><a routerLink="all">wszystkie wiadomości!</a></b> </h6>
     </div>
   </ng-container>
   <ng-container *ngIf="(!!todayNews.length === true)">
