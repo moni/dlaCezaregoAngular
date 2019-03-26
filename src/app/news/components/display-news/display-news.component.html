@@ -10,7 +10,7 @@
     </div>
   </ng-container>
   <div class="row news-container" *ngIf="item.title">
-    <div class="col-12 news-title">
+    <div class="col-10 news-title">
       <ng-container *ngIf="isAuthenticated()">
         <ng-container *ngIf="isFavorite(item._id)">
           <i class="fas fa-star star" (click)="updateFavorites(item._id)"></i>
@@ -20,14 +20,20 @@
         </ng-container>
       </ng-container>
       <ng-container *ngIf="!isAuthenticated()">
-          <i class="far fa-star star" (click)="toggleMessageAboutLogin(i)"></i>
+        <i class="far fa-star star" (click)="toggleMessageAboutLogin(i)"></i>
       </ng-container>
-      <a href={{item.url}} target="_blank" data-toggle="tooltip" data-placement="bottom" title={{item.description}}> {{ item.title}} </a>
-      <div class="news-source" *ngIf="item.source.name"> ({{ item.source.name  }}) </div>
+      <a href={{item.url}} target="_blank" data-toggle="tooltip" data-placement="bottom"
+         title={{item.description}}> {{ item.title}} </a>
+      <div class="news-source" *ngIf="item.source.name"> ({{ item.source.name  }})</div>
       <div class="news-info">
         <div class="news-date" *ngIf="item.publishedAt"> {{ item.publishedAt | date:'dd MMMM yyyy'}} </div>
-        <div class="news-author" *ngIf="item.author"> ({{ item.author }}) </div>
+        <div class="news-author" *ngIf="item.author"> ({{ item.author }})</div>
       </div>
+    </div>
+    <div class="col-2 thumbnail align-content-end">
+      <ng-container *ngIf="!!item.urlToImage">
+        <img class="pull-right" [lazyLoad]="item.urlToImage" [offset]="150">
+      </ng-container>
     </div>
   </div>
 </div>

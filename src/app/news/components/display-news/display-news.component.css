@@ -58,4 +58,13 @@ i {
   margin: 0 8px;
   cursor: pointer; }
 
+.thumbnail {
+  width: 100%;
+  text-align: right; }
+  .thumbnail img {
+    max-height: 50px;
+    border: 2px solid #7a5656; }
+  .thumbnail img:hover {
+    border: 2px solid #ee495f; }
+
 /*# sourceMappingURL=display-news.component.css.map */

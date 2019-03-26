@@ -79,4 +79,16 @@ i {
   cursor: pointer;
 }
 
+.thumbnail {
+  width: 100%;
+  text-align:right;
 
+  img {
+    max-height: 50px;
+    border: 2px solid $smallTextColor;
+  }
+
+  img:hover {
+    border: 2px solid $activeLinkColor;
+  }
+}
