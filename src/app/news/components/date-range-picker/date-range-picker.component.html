@@ -1,0 +1,22 @@
+<div class="date-range">
+  <label>
+    Od:
+    <input class="date-input"
+           [owlDateTimeTrigger]="df1" [owlDateTime]="df1"
+           [(ngModel)]="dateFrom"
+           (ngModelChange)="onDateChange()"
+           [selectMode]="'rangeFrom'">
+    <owl-date-time [pickerType]="'calendar'" #df1></owl-date-time>
+  </label>
+  <label>
+    Do:
+    <input class="date-input"
+           [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2"
+           [(ngModel)]="dateTo"
+           (ngModelChange)="onDateChange()"
+           [selectMode]="'rangeTo'">
+    <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+  </label>
+
+</div>
+

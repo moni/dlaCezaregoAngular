@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import * as jwt_decode from 'jwt-decode';
+import {Router} from '@angular/router';
 
 import {environment} from '../../environments/environment';
-import {Router} from '@angular/router';
 import {UserInterface} from '../interfaces/user.interface';
 
 @Injectable({

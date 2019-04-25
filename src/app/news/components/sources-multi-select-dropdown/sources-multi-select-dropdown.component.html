@@ -1,33 +1,18 @@
-<ng-container *ngIf="!newsSourcesNames">
-  <app-spinner></app-spinner>
-</ng-container>
-
 <ng-container *ngIf="!!selectedNewsSourcesNames.length">
-  <div class="container">
-    <div class="row multiselect-dropdown-row">
-      <form class="multiselect-dropdown-form" [formGroup]="multiSelectForm">
-          <ng-multiselect-dropdown class="multiselect-dropdown-class"
-            name="newsSourceNames"
-            [data]="newsSourcesNames"
-            [placeholder]="'Wybierz Źródła Wiadomości'"
-            formControlName="newsSourceNames"
-            [settings]="dropdownSettings"
-            (onSelect)="onItemSelect($event)"
-            (onDeSelect)="onItemDeSelect($event)"
-            (onSelectAll)="onSelectAll($event)"
-            (onDeSelectAll)="onDeSelectAll($event)"
-          >
-          </ng-multiselect-dropdown>
-
-      </form>
-    </div>
+  <div class="multiselect-dropdown-row">
+    <form class="multiselect-dropdown-form" [formGroup]="multiSelectForm">
+      <ng-multiselect-dropdown class="multiselect-dropdown-class"
+                               name="newsSourceNames"
+                               [data]="newsSourcesNames"
+                               [placeholder]="'Wybierz Źródła Wiadomości'"
+                               formControlName="newsSourceNames"
+                               [settings]="dropdownSettings"
+                               (onSelect)="onItemSelect($event)"
+                               (onDeSelect)="onItemDeSelect($event)"
+                               (onSelectAll)="onSelectAll($event)"
+                               (onDeSelectAll)="onDeSelectAll($event)"
+      >
+      </ng-multiselect-dropdown>
+    </form>
   </div>
-  <ng-container *ngIf="!news.length">
-    <h6 class="text-center align-middle p-5">Żeby wyświetlić wiadomości, zaznacz przynajmniej jedno źródło!</h6>
-  </ng-container>
-  <ng-container *ngIf="!!selectedNewsSourcesNames.length">
-    <app-display-news [news]="news"></app-display-news>
-  </ng-container>
 </ng-container>
-
-

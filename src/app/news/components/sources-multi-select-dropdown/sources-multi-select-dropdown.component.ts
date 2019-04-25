@@ -1,8 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 import {NewsService} from '../../news.service';
-import {NewsInterface} from '../../../interfaces/news.interface';
 
 @Component({
   selector: 'app-sources-multi-select-dropdown',
@@ -11,7 +10,6 @@ import {NewsInterface} from '../../../interfaces/news.interface';
   encapsulation: ViewEncapsulation.None
 })
 export class SourcesMultiSelectDropdownComponent implements OnInit {
-  @Input() news: Array<NewsInterface>;
   @Output() sources = new EventEmitter<string>();
   public newsSourcesNames: Array<object> = [];
   public selectedNewsSourcesNames: Array<object> = [];
@@ -39,9 +37,7 @@ export class SourcesMultiSelectDropdownComponent implements OnInit {
       unSelectAllText: 'Odznacz Wszystkie',
       itemsShowLimit: 3,
     };
-
   }
-
 
   onItemSelect(item: { item_id: string, item_text: string }): void {
     this.selectedNewsSourcesNames.push(item);
@@ -52,7 +48,6 @@ export class SourcesMultiSelectDropdownComponent implements OnInit {
     const itemIndex = this.selectedNewsSourcesNames.map((source: { item_id: string, item_text: string }) => source.item_id).indexOf(item.item_id);
     this.selectedNewsSourcesNames.splice(itemIndex, 1);
     this.changeSources();
-    // ;
   }
 
   onSelectAll(): void {
@@ -69,8 +64,7 @@ export class SourcesMultiSelectDropdownComponent implements OnInit {
     return this.selectedNewsSourcesNames
       .map((item: { item_id: string, item_text: string }) => item.item_text
         .valueOf())
-      .toString()
-      .split(' ').join('%20');
+      .toString();
   }
 
   changeSources(): void {

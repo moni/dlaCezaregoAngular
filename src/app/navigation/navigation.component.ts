@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+
 import {AuthService} from '../auth/auth.service';
 
 @Component({
@@ -6,18 +7,16 @@ import {AuthService} from '../auth/auth.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit() {
+  constructor(private authService: AuthService) {
   }
 
   isAuthenticated(): boolean {
-    return this.authService.isAuthenticated()
+    return this.authService.isAuthenticated();
   }
 
   logOut() {
-    return this.authService.logOutUser()
+    return this.authService.logOutUser();
   }
 }

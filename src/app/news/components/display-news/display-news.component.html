@@ -30,10 +30,14 @@
         <div class="news-author" *ngIf="item.author"> ({{ item.author }})</div>
       </div>
     </div>
-    <div class="col-2 thumbnail align-content-end">
+    <div class="col-2 align-content-end thumbnail-container">
       <ng-container *ngIf="!!item.urlToImage">
-        <img class="pull-right" [lazyLoad]="item.urlToImage" [offset]="150">
+        <span>
+          <img class="thumbnail" [lazyLoad]="item.urlToImage" [offset]="150"/>
+          <img class="thumbnail-preview pull-right" src="{{item.urlToImage}}"/>
+        </span>
       </ng-container>
     </div>
   </div>
 </div>
+

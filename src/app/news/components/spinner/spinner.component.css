@@ -15,7 +15,7 @@
   animation: spinner-anima 2s ease-in-out infinite;
 }
 .spinners .spinner {
-  box-shadow: 1px 1px 3px #223D4C;
+  box-shadow: 1px 1px 3px rgba(149, 50, 63, 0.7);
   position: absolute;
   left: calc(50% - 7px);
   width: 14px;
@@ -25,13 +25,13 @@
   animation: spinner-anima 2s ease-in-out infinite;
 }
 .spinners .spinner-01 {
-  background-color: #E2C044;
+  background-color: #ee495f;
 }
 .spinners .spinner-02 {
-  background-color: #D3D0CB;
+  background-color: rgba(238, 73, 95, 0.4);
 }
 .spinners .spinner-03 {
-  background-color: #9FB1BC;
+  background-color: rgba(238, 73, 95, 0.2);
 }
 
 @keyframes spinner-anima {

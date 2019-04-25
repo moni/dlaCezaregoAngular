@@ -1,19 +1,17 @@
 import {Injectable} from '@angular/core';
-import {
-  HttpRequest,
+import {HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpErrorResponse, HttpResponse
+  HttpInterceptor, HttpResponse
 } from '@angular/common/http';
 import {AuthService} from '../auth/auth.service';
-import {Observable, of} from 'rxjs';
-import {Router} from "@angular/router";
+import {Observable} from 'rxjs';
 import {tap} from "rxjs/internal/operators";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(public authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -35,6 +33,6 @@ export class AuthInterceptor implements HttpInterceptor {
           this.authService.authFlag = false;
           this.authService.updateStatusCode(error.status);
         })
-    );
+      );
   }
 }

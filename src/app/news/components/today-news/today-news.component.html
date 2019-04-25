@@ -1,15 +1,15 @@
 <ng-container *ngIf="!todayNews">
   <app-spinner></app-spinner>
 </ng-container>
-
 <ng-container *ngIf="!!todayNews">
   <ng-container *ngIf="(!!todayNews.length === false)">
     <div class="container">
-      <h6 class="text-center align-middle p-5">Nie ma dzisiejszych wiadomości! Sprawdź <b><a routerLink="all">wszystkie wiadomości!</a></b> </h6>
+      <h6 class="text-center align-middle p-5">Nie ma dzisiejszych wiadomości! Sprawdź <b><a routerLink="all">wszystkie
+        wiadomości!</a></b></h6>
     </div>
   </ng-container>
   <ng-container *ngIf="(!!todayNews.length === true)">
-    <app-display-news [news]="todayNews" ></app-display-news>
+    <app-display-news [news]="todayNews"></app-display-news>
   </ng-container>
 </ng-container>
 

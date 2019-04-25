@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 
 import {NewsService} from '../../news.service';
 import {NewsInterface} from '../../../interfaces/news.interface';
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-favorites',

@@ -19,7 +19,6 @@ export class DisplayNewsComponent implements OnInit {
   }
 
   ngOnInit() {
-
     if (this.isAuthenticated()) {
       this.newsService.getFavoritesIds().subscribe(newsIds =>
         this.favoritesIds = newsIds as Array<string>)
@@ -41,11 +40,9 @@ export class DisplayNewsComponent implements OnInit {
       const newsIndex = this.favoritesIds.indexOf(newsId);
       this.favoritesIds.splice(newsIndex, 1);
       if (location.pathname === '/favorites') {
-        console.log(this.news)
         const unlikedNews = this.news.find(news => news._id === newsId);
         const unlikedNewsId = this.news.indexOf(unlikedNews);
         this.news.splice(unlikedNewsId, 1);
-        console.log('yeyeye')
       }
     } else {
       this.favoritesIds.push(newsId);
@@ -61,5 +58,4 @@ export class DisplayNewsComponent implements OnInit {
     this.showMessageToAuth = !this.showMessageToAuth;
     this.selectedNewsIndex = this.selectedNewsIndex ? null : index;
   }
-
 }

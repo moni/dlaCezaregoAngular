@@ -16,11 +16,13 @@
     <ng-container *ngIf="(favorites.length > 1)">
       <div class="container">
         <div class="delete-favs-btn">
-         <button type="submit" class="btn btn-outline-danger btn-sm" (click)="handleDeleteAllFavorites()">usuń wszystko z ulubionych</button>
+          <button type="submit" class="btn btn-outline-danger btn-sm" (click)="handleDeleteAllFavorites()">usuń wszystko
+            z ulubionych
+          </button>
         </div>
       </div>
     </ng-container>
-    <app-display-news [news]="favorites" ></app-display-news>
+    <app-display-news [news]="favorites"></app-display-news>
   </ng-container>
 </ng-container>
 
