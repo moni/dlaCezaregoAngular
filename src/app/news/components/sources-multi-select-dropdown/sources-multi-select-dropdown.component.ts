@@ -13,13 +13,13 @@ export class SourcesMultiSelectDropdownComponent implements OnInit {
   @Output() sources = new EventEmitter<string>();
   public newsSourcesNames: Array<object> = [];
   public selectedNewsSourcesNames: Array<object> = [];
-  public dropdownSettings: Object = {};
+  public dropdownSettings: object = {};
   public multiSelectForm: FormGroup;
 
   constructor(private newsService: NewsService, private fb: FormBuilder) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.newsService.getNewsSourcesNames().subscribe(sourcesNames => {
       const names = sourcesNames as Array<string>;
       this.newsSourcesNames = names.map((name, idx) => ({item_id: idx, item_text: name}));

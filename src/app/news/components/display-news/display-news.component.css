@@ -75,21 +75,15 @@ i {
   width: 100%;
   height: 50px;
   text-align: right; }
-  .thumbnail-container span img.thumbnail {
+  .thumbnail-container img.thumbnail {
     z-index: 0;
     max-height: 50px;
     border: 2px solid #7a5656; }
-  .thumbnail-container span .thumbnail-preview {
-    display: none; }
-  .thumbnail-container span img.thumbnail:hover + .thumbnail-preview,
-  .thumbnail-container span img.thumbnail:focus + .thumbnail-preview {
+  .thumbnail-container img.thumbnail.ng-lazyloaded:focus {
+    height: 500px;
+    width: 1000px;
+    border: 3px solid green;
     display: flex;
-    position: fixed;
-    top: 20vh;
-    left: 25vw;
-    width: 50vw;
-    max-width: 50vw;
-    height: auto;
-    z-index: 2; }
+    position: absolute; }
 
 /*# sourceMappingURL=display-news.component.css.map */

@@ -14,7 +14,7 @@ export class FavoritesComponent implements OnInit {
   constructor(private newsService: NewsService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.newsService.getFavorites().subscribe(news => {
       this.favorites = news as Array<NewsInterface>;
     });

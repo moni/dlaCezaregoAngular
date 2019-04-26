@@ -14,7 +14,7 @@ export class TodayNewsComponent implements OnInit {
   constructor(private newsService: NewsService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.newsService.getTodayNews().subscribe(news => {
       this.todayNews = news as Array<NewsInterface>;
     });

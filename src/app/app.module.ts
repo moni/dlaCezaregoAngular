@@ -7,8 +7,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NavigationComponent} from './navigation/navigation.component';
 import {AppRoutingModule} from './app-routing.module';
 import {NewsService} from './news/news.service';
-import {AuthModule} from "./auth/auth.module";
-import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import {AuthModule} from './auth/auth.module';
+import {AuthInterceptor} from './interceptors/auth.interceptor';
 
 
 @NgModule({

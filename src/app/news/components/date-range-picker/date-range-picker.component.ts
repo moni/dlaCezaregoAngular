@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-date-range-picker',
@@ -12,7 +12,7 @@ export class DateRangePickerComponent {
   public dateFrom: Date;
   public dateTo: Date;
 
-  onDateChange() {
+  onDateChange(): void {
     this.onSelectValue.emit({dateFrom: this.dateFrom, dateTo: this.dateTo});
   }
 }

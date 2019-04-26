@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 
 import {AuthService} from '../auth/auth.service';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -16,7 +17,7 @@ export class NavigationComponent {
     return this.authService.isAuthenticated();
   }
 
-  logOut() {
+  logOut(): BehaviorSubject<any> {
     return this.authService.logOutUser();
   }
 }

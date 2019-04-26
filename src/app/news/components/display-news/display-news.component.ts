@@ -1,8 +1,9 @@
 import {Component, Input, OnInit,} from '@angular/core';
+import {Subscription} from 'rxjs';
 
 import {AuthService} from '../../../auth/auth.service';
 import {NewsService} from '../../news.service';
-import {NewsInterface} from "../../../interfaces/news.interface";
+import {NewsInterface} from '../../../interfaces/news.interface';
 
 @Component({
   selector: 'app-display-news',
@@ -18,7 +19,7 @@ export class DisplayNewsComponent implements OnInit {
   constructor(private authService: AuthService, private newsService: NewsService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.isAuthenticated()) {
       this.newsService.getFavoritesIds().subscribe(newsIds =>
         this.favoritesIds = newsIds as Array<string>)
@@ -49,7 +50,7 @@ export class DisplayNewsComponent implements OnInit {
     }
   }
 
-  updateFavorites(newsId: string) {
+  updateFavorites(newsId: string): Subscription {
     this.updateFavoritesIds(newsId);
     return this.newsService.updateFavoritesNews(newsId);
   }
@@ -57,5 +58,9 @@ export class DisplayNewsComponent implements OnInit {
   toggleMessageAboutLogin(index: number): void {
     this.showMessageToAuth = !this.showMessageToAuth;
     this.selectedNewsIndex = this.selectedNewsIndex ? null : index;
+  }
+
+  showThumbnailPreview(imgUrl, itemId) {
+
   }
 }

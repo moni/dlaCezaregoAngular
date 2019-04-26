@@ -6,7 +6,7 @@ import {HttpRequest,
 } from '@angular/common/http';
 import {AuthService} from '../auth/auth.service';
 import {Observable} from 'rxjs';
-import {tap} from "rxjs/internal/operators";
+import {tap} from 'rxjs/internal/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

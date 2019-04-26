@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import {NewsInterface} from "../../../interfaces/news.interface";
-import {NewsService} from "../../news.service";
+import {NewsInterface} from '../../../interfaces/news.interface';
+import {NewsService} from '../../news.service';
 
 @Component({
   selector: 'app-filters',
@@ -17,7 +17,7 @@ export class FiltersComponent implements OnInit {
   constructor(private newsService: NewsService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.newsService.getNews().subscribe(news =>
       this.news = news as Array<NewsInterface>
     );

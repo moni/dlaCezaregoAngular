@@ -15,25 +15,25 @@ export class NewsService {
     private authService: AuthService) {
   }
 
-  getNews(): Observable<Object> {
+  getNews(): Observable<object> {
     return this.httpClient.get(`${environment.apiUrl}/news`);
   }
 
-  getTodayNews(): Observable<Object> {
+  getTodayNews(): Observable<object> {
     return this.httpClient.get(`${environment.apiUrl}/news/today`);
   }
 
-  getFavorites(): Observable<Object> {
+  getFavorites(): Observable<object> {
     const id = this.authService.userId;
     return this.httpClient.get(`${environment.apiUrl}/news/${id}/getFavNews`);
   }
 
-  getFavoritesIds(): Observable<Object> {
+  getFavoritesIds(): Observable<object> {
     const id = this.authService.userId;
     return this.httpClient.get(`${environment.apiUrl}/users/${id}/getFavIds`);
   }
 
-  updateFavorites(newsId: string): Observable<Object> {
+  updateFavorites(newsId: string): Observable<object> {
     const id = this.authService.userId;
     return this.httpClient.post(`${environment.apiUrl}/users/${id}/updateFav`, {newsId});
   }
@@ -54,7 +54,7 @@ export class NewsService {
       });
   }
 
-  getNewsSourcesNames(): Observable<Object> {
+  getNewsSourcesNames(): Observable<object> {
     return this.httpClient.get(`${environment.apiUrl}/news/apisSources`);
   }
 

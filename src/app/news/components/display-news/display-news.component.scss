@@ -94,33 +94,55 @@ i {
   display: none;
 }
 
+//.thumbnail-container:hover {
+//  height: 500px;
+//  width: 1000px;
+//  border: 3px solid green;
+//  display: flex;
+//  position: absolute;
+//
+//  img {
+//    width: 500px;
+//    height: 600px;
+//  }
+//}
+
 .thumbnail-container {
   //position: relative;
   width: 100%;
   height: 50px;
   text-align:right;
 
-  span img.thumbnail {
+  img.thumbnail  {
     //position: relative;
     z-index: 0;
     max-height: 50px;
     border: 2px solid $smallTextColor;
   }
 
-  span .thumbnail-preview {
-    display: none;
+  img.thumbnail.ng-lazyloaded:focus {
+    //position: relative;
+    height: 500px;
+    width: 1000px;
+    border: 3px solid green;
+    display: flex;
+    position: absolute;
   }
 
-  span img.thumbnail:hover + .thumbnail-preview,
-  span img.thumbnail:focus + .thumbnail-preview {
-    display: flex;
-    position: fixed;
-    top: 20vh;
-    left: 25vw;
-    width: 50vw;
-    max-width: 50vw;
-    height: auto;
-    z-index: 2;
-  }
+  //span .thumbnail-preview {
+  //  display: none;
+  //}
+
+  //span img.thumbnail:hover + .thumbnail-preview,
+  //span img.thumbnail:focus + .thumbnail-preview {
+  //  display: flex;
+  //  position: fixed;
+  //  top: 20vh;
+  //  left: 25vw;
+  //  width: 50vw;
+  //  max-width: 50vw;
+  //  height: auto;
+  //  z-index: 2;
+  //}
 
 }
