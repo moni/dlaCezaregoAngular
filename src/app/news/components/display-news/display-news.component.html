@@ -24,18 +24,22 @@
       </ng-container>
       <a href={{item.url}} target="_blank" data-toggle="tooltip" data-placement="bottom"
          title={{item.description}}> {{ item.title}} </a>
-      <div class="news-source" *ngIf="item.source.name"> ({{ item.source.name  }})</div>
+      <div class="news-source" *ngIf="item.source"> ({{ item.source}})</div>
       <div class="news-info">
         <div class="news-date" *ngIf="item.publishedAt"> {{ item.publishedAt | date:'dd MMMM yyyy'}} </div>
         <div class="news-author" *ngIf="item.author"> ({{ item.author }})</div>
       </div>
     </div>
-    <div class="col align-content-end thumbnail-container">
+    <div class="col-2 align-content-end thumbnail-container">
       <ng-container *ngIf="!!item.urlToImage">
-          <img id="{{item._id}}" class="thumbnail" [lazyLoad]="item.urlToImage" [offset]="350" (mouseover)="showThumbnailPreview(item.urlToImage, item._id)"/>
-<!--          <img class="thumbnail-preview pull-right" src="{{item.urlToImage}}"/>-->
+          <img id="{{item._id}}" class="thumbnail" [lazyLoad]="item.urlToImage" [offset]="650"
+               [ngbPopover]="imgPreview" triggers="mouseenter:mouseleave" placement="left"
+               popoverClass="thumbnail-preview"/>
+          <ng-template #imgPreview>
+            <img class="img-preview" src="{{item.urlToImage}}">
+          </ng-template>
       </ng-container>
     </div>
   </div>
-</div>
+
 

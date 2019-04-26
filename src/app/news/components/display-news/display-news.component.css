@@ -58,16 +58,6 @@ i {
   margin: 0 8px;
   cursor: pointer; }
 
-.thumbnail-pre {
-  position: absolute;
-  display: block;
-  width: 80%;
-  max-width: 1140px;
-  min-width: 300px;
-  height: 50vh;
-  margin: 0 auto;
-  z-index: 307; }
-
 .display-none {
   display: none; }
 
@@ -79,11 +69,17 @@ i {
     z-index: 0;
     max-height: 50px;
     border: 2px solid #7a5656; }
-  .thumbnail-container img.thumbnail.ng-lazyloaded:focus {
-    height: 500px;
-    width: 1000px;
-    border: 3px solid green;
-    display: flex;
-    position: absolute; }
+  .thumbnail-container .img-preview {
+    background-color: #BFBFBF;
+    border: none; }
+  .thumbnail-container .img-preview.arrow:before {
+    border-color: crimson; }
+  .thumbnail-container img.img-preview {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    height: 300px;
+    border: 5px solid #BFBFBF;
+    border-radius: 5px; }
 
 /*# sourceMappingURL=display-news.component.css.map */

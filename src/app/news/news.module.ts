@@ -13,6 +13,7 @@ import {
 } from "ng-pick-datetime";
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {DisplayNewsComponent} from './components/display-news/display-news.component';
 import {AllNewsComponent} from './components/all-news/all-news.component';
@@ -50,7 +51,8 @@ export class OWL_DATE_TIME_SETTINGS extends OwlDateTimeIntl {
     LazyLoadImageModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    OwlMomentDateTimeModule
+    OwlMomentDateTimeModule,
+    NgbModule
   ],
   declarations: [AllNewsComponent, DisplayNewsComponent, TodayNewsComponent, FavoritesComponent, SpinnerComponent, SourcesMultiSelectDropdownComponent, DateRangePickerComponent, FiltersComponent],
   providers: [

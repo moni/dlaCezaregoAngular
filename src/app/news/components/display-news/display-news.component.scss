@@ -79,70 +79,37 @@ i {
   cursor: pointer;
 }
 
-.thumbnail-pre {
-  position: absolute;
-  display: block;
-  width: 80%;
-  max-width: 1140px;
-  min-width: 300px;
-  height: 50vh;
-  margin: 0 auto;
-  z-index: 307;
-}
-
 .display-none {
   display: none;
 }
 
-//.thumbnail-container:hover {
-//  height: 500px;
-//  width: 1000px;
-//  border: 3px solid green;
-//  display: flex;
-//  position: absolute;
-//
-//  img {
-//    width: 500px;
-//    height: 600px;
-//  }
-//}
-
 .thumbnail-container {
-  //position: relative;
   width: 100%;
   height: 50px;
   text-align:right;
 
   img.thumbnail  {
-    //position: relative;
     z-index: 0;
     max-height: 50px;
     border: 2px solid $smallTextColor;
   }
 
-  img.thumbnail.ng-lazyloaded:focus {
-    //position: relative;
-    height: 500px;
-    width: 1000px;
-    border: 3px solid green;
-    display: flex;
-    position: absolute;
+  .img-preview {
+    background-color: #BFBFBF;
+    border: none;
   }
 
-  //span .thumbnail-preview {
-  //  display: none;
-  //}
+  .img-preview.arrow:before {
+    border-color: crimson;
+  }
 
-  //span img.thumbnail:hover + .thumbnail-preview,
-  //span img.thumbnail:focus + .thumbnail-preview {
-  //  display: flex;
-  //  position: fixed;
-  //  top: 20vh;
-  //  left: 25vw;
-  //  width: 50vw;
-  //  max-width: 50vw;
-  //  height: auto;
-  //  z-index: 2;
-  //}
+  img.img-preview {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    height: 300px;
+    border: 5px solid #BFBFBF;
+    border-radius: 5px;
+  }
 
 }
