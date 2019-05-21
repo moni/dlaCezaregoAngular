@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    public authService: AuthService
   ) {
   }
 
