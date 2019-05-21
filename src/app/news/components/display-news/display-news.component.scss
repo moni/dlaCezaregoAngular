@@ -88,6 +88,9 @@ i {
   height: 50px;
   text-align:right;
 
+  img {
+    cursor: pointer;
+  }
   img.thumbnail  {
     z-index: 0;
     max-height: 50px;
