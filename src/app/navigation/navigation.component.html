@@ -10,21 +10,21 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="container d-flex justify-content-between">
+    <div class="container d-block d-lg-flex ml-0 ml-md-auto justify-content-between">
       <ul class="navbar-nav d-flex justify-content-start">
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link" routerLink="">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" routerLink="" >
             Najnowsze Wiadomości
           </a>
         </li>
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link" routerLink="all">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" routerLink="all" >
             Wszystkie Wiadomości
           </a>
         </li>
         <ng-container *ngIf="isAuthenticated()">
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/favorites">
+          <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/favorites" >
               Ulubione
             </a>
           </li>
@@ -32,13 +32,13 @@
       </ul>
       <ul class="navbar-nav d-flex justify-content-end ">
         <ng-container *ngIf="!isAuthenticated()">
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/register">
+          <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/register" >
               Rejestracja
             </a>
           </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" routerLink="/login">
+          <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a class="nav-link" routerLink="/login" >
               Logowanie
             </a>
           </li>

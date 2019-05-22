@@ -3,6 +3,12 @@ $activeLinkColor: #ee495f;
 $smallTextColor: rgb(122, 86, 86);
 $starColor: #ffd600;
 
+
+.container {
+  margin: 0 auto;
+  padding-bottom: 8px;
+
+}
 .right {
   text-align: right;
 }
@@ -17,45 +23,111 @@ a:active, a:hover {
 }
 
 .news-container {
-  margin: 8px 30px;
+  margin: 0 auto;
+
   padding: 8px;
   box-shadow: 0px 1px 2px $activeLinkColor;
   border-radius: 5px;
-}
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
 
-.news-title {
-  font-size: 16px;
-}
+  min-height: 66px;
+  width: 100%;
+  min-width: 300px;
 
-.news-source {
-  display: inline-block;
-  font-size: 12px;
-  color: $smallTextColor;
-}
+  .news-title {
+    font-size: 16px;
 
-.news-description {
-  font-size: 12px;
-}
 
-.news-info {
-  display: block;
-  font-size: 10px;
-  color: $smallTextColor;
-}
+    .news-source {
+      display: inline-block;
+      font-size: 12px;
+      color: $smallTextColor;
+    }
 
-.news-author, .news-date {
-  display: inline-block;
-  margin:  0 0 0 5px;
-}
+    .news-info {
+      display: block;
+      font-size: 10px;
+      color: $smallTextColor;
+    }
 
-i {
-  color: $starColor;
-}
+    .news-author, .news-date {
+      display: inline-block;
+      margin:  0 0 0 5px;
+    }
 
-.star:hover {
-  opacity: 0.5;
-  cursor: pointer;
-}
+    i {
+      color: $starColor;
+    }
+
+    .star:hover {
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    .news-description {
+      font-size: 12px;
+    }
+  }
+
+  .thumbnail-container {
+    width: 200px;
+    right: 16px;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 8px;
+    //position: absolute;
+
+    img {
+      cursor: pointer;
+      height: 50px;
+
+    }
+    img.thumbnail  {
+      z-index: 0;
+      max-height: 50px;
+      border: 2px solid $smallTextColor;
+    }
+
+    .img-preview {
+      background-color: #BFBFBF;
+      border: none;
+    }
+
+    .img-preview.arrow:before {
+      border-color: crimson;
+    }
+
+    img.img-preview {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      height: 300px;
+      border: 5px solid #BFBFBF;
+      border-radius: 5px;
+      @media (max-width: 549px) {
+        height: 90px;
+        top: -40px;
+      }
+      @media (min-width: 550px) and (max-width: 1000px) {
+        height: 200px;
+      }
+    }
+
+  }
+
+
+
+
+
+
+
+
+
 
 .msg-body {
   font-size: small;
@@ -83,36 +155,6 @@ i {
   display: none;
 }
 
-.thumbnail-container {
-  width: 100%;
-  height: 50px;
-  text-align:right;
 
-  img {
-    cursor: pointer;
-  }
-  img.thumbnail  {
-    z-index: 0;
-    max-height: 50px;
-    border: 2px solid $smallTextColor;
-  }
-
-  .img-preview {
-    background-color: #BFBFBF;
-    border: none;
-  }
-
-  .img-preview.arrow:before {
-    border-color: crimson;
-  }
-
-  img.img-preview {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    height: 300px;
-    border: 5px solid #BFBFBF;
-    border-radius: 5px;
-  }
 
 }

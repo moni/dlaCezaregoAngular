@@ -10,7 +10,7 @@
     </div>
   </ng-container>
   <div class="row news-container" *ngIf="item.title">
-    <div class="col-10 news-title">
+    <div class="news-title">
       <ng-container *ngIf="isAuthenticated()">
         <ng-container *ngIf="isFavorite(item._id)">
           <i class="fas fa-star star" (click)="updateFavorites(item._id)"></i>
@@ -30,7 +30,7 @@
         <div class="news-author" *ngIf="item.author"> ({{ item.author }})</div>
       </div>
     </div>
-    <div class="col-2 align-content-end thumbnail-container">
+    <div class="align-content-end thumbnail-container">
       <ng-container *ngIf="!!item.urlToImage">
           <img id="{{item._id}}" class="thumbnail" [lazyLoad]="item.urlToImage" [offset]="650"
                [ngbPopover]="imgPreview" triggers="mouseenter:mouseleave" placement="left"
